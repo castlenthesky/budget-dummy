@@ -1,5 +1,5 @@
 {
-  "name": "campaign_manager",
+  "name": "budget_dummy",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -61,9 +61,7 @@
     "extends": [
       "plugin:vue/essential",
       "eslint:recommended",
-      "@vue/typescript/recommended",
-      "@vue/prettier",
-      "@vue/prettier/@typescript-eslint"
+      "@vue/typescript/recommended"
     ],
     "parserOptions": {
       "ecmaVersion": 2020

@@ -3,34 +3,7 @@
     id="mainApp"
     :style="{ background: $vuetify.theme.themes[theme].background }"
   >
-    <v-system-bar app color="background" height="60px">
-      <v-toolbar-title class="text-uppercase grey--text">
-        <span class="font-weight-light">Budget</span>
-        <span class="font-weight-bold">Dummy</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn v-bind="attrs" v-on="on">
-            <v-avatar>
-              <img :src="currentUser.avatarURL" :alt="currentUser.firstname" />
-            </v-avatar>
-            <div>
-              {{ currentUser.username }}
-            </div>
-            <div>
-              {{ currentUser.title }}
-            </div>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item v-for="item in userboxMenu" :key="item" link flat text>
-            <v-icon dark left>{{ item.icon }}</v-icon>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </v-system-bar>
+    <SystemBar v-bind:userData="currentUser" />
 
     <v-app-bar app clipped-left color="#171717" height="50px">
       <v-app-bar-nav-icon square @click.stop="drawer = !drawer" />
@@ -42,7 +15,7 @@
       </span>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" app clipped activatable>
+    <v-navigation-drawer v-model="drawer" app clipped>
       <NavigationDrawerContent />
     </v-navigation-drawer>
 
@@ -53,7 +26,6 @@
     </v-content>
     <v-footer app inset>
       &copy; 2020 Brian Henson
-      <div>{{ currentUser }}</div>
     </v-footer>
   </v-app>
 </template>
@@ -61,10 +33,12 @@
 <script lang="ts">
 import Vue from "vue";
 import jwt from "jsonwebtoken";
+import SystemBar from "@/components/app/navigation/Systembar.vue";
 import NavigationDrawerContent from "@/components/app/navigation/Navbar.vue";
 
 export default Vue.extend({
   components: {
+    SystemBar: SystemBar,
     NavigationDrawerContent: NavigationDrawerContent,
   },
   name: "App",
@@ -72,25 +46,23 @@ export default Vue.extend({
     theme() {
       return this.$vuetify.theme.dark ? "dark" : "light";
     },
+    currentUser() {
+      // return {}
+      return {
+        username: "castlenthesky",
+        role: "admin",
+        title: "aspiring developer",
+        firstname: "Brian",
+        lastname: "Henson",
+        birthday: "05/05/1988",
+        avatarURL:
+          "https://avatars2.githubusercontent.com/u/4368301?s=460&u=f55bbdbb74bf0c8dd4298ebfd0b7ff7cde97825e&v=4",
+      };
+    },
   },
 
   data: () => ({
     drawer: null,
-    currentUser: jwt.decode(localStorage.getItem("token")),
-    userboxMenu: [
-      {
-        title: "My Profile",
-        icon: "mdi-account",
-      },
-      {
-        title: "Settings",
-        icon: "mdi-cog",
-      },
-      {
-        title: "Logout",
-        icon: "mdi-logout",
-      },
-    ],
   }),
 });
 </script>

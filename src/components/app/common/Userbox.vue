@@ -1,15 +1,10 @@
 <template>
-  <div>
-    {{ userData }}
-  </div>
+  <div></div>
 </template>
 
 <script lang="ts">
 export default {
-  props: ["userData"],
-  data: () => ({
-    something: true,
-  }),
+  data: () => ({}),
 };
 </script>
 

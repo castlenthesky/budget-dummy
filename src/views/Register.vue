@@ -44,11 +44,11 @@ export default Vue.extend({
       valid: false,
       e1: false,
       password: "",
-      passwordRules: [(v) => !!v || "Password is required"],
+      passwordRules: [(v: string) => !!v || "Password is required"],
       email: "",
       emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) =>
+        (v: string) => !!v || "E-mail is required",
+        (v: string) =>
           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
           "E-mail must be valid",
       ],

@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { routes } from "@/router";
+import routes from "@/router/routes";
 
 export default {
   name: "NavigationDrawerContent",
