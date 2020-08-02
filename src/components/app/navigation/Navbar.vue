@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-navigation-drawer v-model="drawer" app clipped>
     <v-list dense>
       <v-list-item link>
         <v-list-item-avatar>
@@ -52,15 +52,27 @@
           </template>
         </template>
       </v-list-item-group>
+      <v-divider></v-divider>
     </v-list>
-  </div>
+    <template v-slot:append>
+      <div ma-2>
+        <v-btn block text color="error" @click="logout">Logout</v-btn>
+      </div>
+    </template>
+  </v-navigation-drawer>
 </template>
 
 <script lang="ts">
 import routes from "@/router/routes";
 
 export default {
-  name: "NavigationDrawerContent",
+  name: "NavigationDrawer",
+  props: ["drawer"],
+  methods: {
+    logout: () => {
+      alert("Logout");
+    },
+  },
   data: () => ({
     routes: routes,
     navigation: [

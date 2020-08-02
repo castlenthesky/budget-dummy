@@ -16,9 +16,7 @@
       </span>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" app clipped>
-      <NavigationDrawerContent />
-    </v-navigation-drawer>
+    <NavigationDrawer v-bind:drawer="drawer"> </NavigationDrawer>
 
     <v-content>
       <v-container fluid>
@@ -33,11 +31,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import NavigationDrawerContent from "@/components/app/navigation/Navbar.vue";
+import NavigationDrawer from "@/components/app/navigation/Navbar.vue";
 
 export default Vue.extend({
   components: {
-    NavigationDrawerContent: NavigationDrawerContent,
+    NavigationDrawer: NavigationDrawer,
   },
   name: "App",
   computed: {
