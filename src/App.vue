@@ -3,11 +3,12 @@
     id="mainApp"
     :style="{ background: $vuetify.theme.themes[theme].background }"
   >
-    <SystemBar v-bind:userData="currentUser" />
-
     <v-app-bar app clipped-left color="#171717" height="50px">
       <v-app-bar-nav-icon square @click.stop="drawer = !drawer" />
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title class="text-uppercase grey--text">
+        <span class="font-weight-light">Budget</span>
+        <span class="font-weight-bold">Dummy</span>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <span>
         Settings / Profile /
@@ -32,13 +33,10 @@
 
 <script lang="ts">
 import Vue from "vue";
-import jwt from "jsonwebtoken";
-import SystemBar from "@/components/app/navigation/Systembar.vue";
 import NavigationDrawerContent from "@/components/app/navigation/Navbar.vue";
 
 export default Vue.extend({
   components: {
-    SystemBar: SystemBar,
     NavigationDrawerContent: NavigationDrawerContent,
   },
   name: "App",

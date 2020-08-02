@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-col cols="12" color="#F85F73">
       <v-row dense align="center" justify="center">
-        <v-col cols="6">
+        <v-col cols="12">
           <v-card color="black" dark class="mx-auto pt-2 text-center">
             <v-card-text>
               <div class="display-1 font-weight-thin">Login</div>
@@ -42,18 +42,6 @@
               </div>
               <v-btn block text color="primary">Register Here</v-btn>
             </v-card-text>
-          </v-card>
-        </v-col>
-
-        <v-col cols="6">
-          <v-card color="orange" dark class="mx-auto text-center">
-            <v-card-text>
-              <div class="display-1 font-weight-thin">Spending</div>
-            </v-card-text>
-            <v-divider class="mx-4"></v-divider>
-            <v-card-actions>
-              <v-btn block text>Details</v-btn>
-            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>

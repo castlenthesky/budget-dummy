@@ -38,4 +38,11 @@ export default [
     component: async () =>
       import(/* webpackChunkName: "login" */ "../views/Login.vue"),
   },
+  {
+    path: "/about",
+    name: "About",
+    icon: "mdi-information",
+    component: async () =>
+      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
 ];
