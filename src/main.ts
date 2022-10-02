@@ -1,16 +1,11 @@
-import Vue from "vue";
-import "./plugins/axios";
+import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import vuetify from "./plugins/vuetify";
-import store from "./store";
-import "./plugins/fontawesome";
 
-Vue.config.productionTip = false;
+import "./assets/main.css";
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: h => h(App)
-}).$mount("#app");
+const app = createApp(App);
+
+app.use(router);
+
+app.mount("#app");
